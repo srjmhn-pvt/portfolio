@@ -544,7 +544,7 @@ h2::after {
 .skill-category h3 {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
-    color: #fff;
+    color: var(--text-primary);
 }
 
 .skill-tags {
