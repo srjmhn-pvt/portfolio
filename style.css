@@ -163,7 +163,26 @@ h2::after {
 .nav-links {
     list-style: none;
     display: flex;
+    align-items: center;
     gap: 2.5rem;
+}
+
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.hamburger:hover {
+    color: var(--accent-color);
 }
 
 .nav-links a {
@@ -733,11 +752,71 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .section { padding: 80px 1.5rem; }
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        width: 100%;
+        text-align: center;
+        transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        box-shadow: var(--glass-shadow);
+        padding: 2rem 1.5rem;
+        gap: 1rem;
+        border-bottom: 1px solid var(--glass-border);
+        border-radius: 0 0 24px 24px;
+    }
+    .nav-links.active {
+        right: 0;
+    }
+    .nav-links li {
+        width: 100%;
+        border: none;
+    }
+    .nav-links a {
+        display: block;
+        width: 220px;
+        max-width: 85%;
+        margin: 0 auto;
+        padding: 1rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #ffffff !important;
+        background: var(--accent-color);
+        border-radius: 50px;
+        box-shadow: 0 5px 15px var(--accent-glow);
+        transition: all 0.3s ease;
+    }
+    .nav-links a::after {
+        display: none;
+    }
+    .nav-links a:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px var(--accent-glow);
+        letter-spacing: 2px;
+    }
+    .hamburger {
+        display: block;
+    }
+    .section { padding: 50px 1.5rem; }
+    .section-header { margin-bottom: 2rem; }
     .name { font-size: 2.8rem; }
     .image-wrapper { width: 300px; height: 300px; }
     h2 { font-size: 2.2rem; }
     .timeline-item { padding-left: 45px; }
     .contact-card { padding: 3rem 1.5rem; }
+    .hero-cta {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+    .hero-cta .btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.95rem;
+        flex: 1 1 auto;
+        text-align: center;
+        min-width: 140px;
+    }
 }
