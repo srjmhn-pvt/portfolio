@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const iconSpan = themeToggle.querySelector('.icon');
     
     // Check saved theme
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme) {
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        if (currentTheme === 'light') {
-            iconSpan.textContent = '🌙';
-        }
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    if (currentTheme === 'light') {
+        iconSpan.textContent = '🌙';
+    } else {
+        iconSpan.textContent = '☀️';
     }
     
     themeToggle.addEventListener('click', () => {
